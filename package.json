@@ -1,0 +1,30 @@
+{
+  "name": "esss",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "tsc:watch": "tsc -w",
+    "tsc:build": "tsc",
+    "lint": "tslint --fix --project tsconfig.json",
+    "test": "ts-node src/index.ts"
+  },
+  "keywords": [
+    "esss",
+    "secp256k1",
+    "sss",
+    "elliptic"
+  ],
+  "author": "zyev.egor@gmail.com",
+  "license": "AGPLv3",
+  "dependencies": {
+    "big-integer": "^1.6.48",
+    "bn.js": "^5.1.1",
+    "elliptic": "^6.5.2"
+  },
+  "devDependencies": {
+    "@types/node": "*",
+    "ts-node": "^8.4.1",
+    "tslint": "^5.15.0",
+    "typescript": "^3.4.1"
+  }
+}
