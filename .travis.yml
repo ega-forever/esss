@@ -1,0 +1,23 @@
+sudo: required
+dist: bionic
+os: linux
+group: stable
+language: node_js
+node_js: 12.1.0
+
+before_install:
+  - sudo apt-get update
+  - npm install -g node-gyp
+
+install:
+  - npm install
+
+script:
+  - npm test
+
+notifications:
+  email: false
+
+cache:
+  directories:
+    - node_modules

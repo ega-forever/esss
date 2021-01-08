@@ -15,7 +15,7 @@ export const pointToPublicKey = (P): Buffer => {
   return Buffer.concat([buffer, P.getX().toArrayLike(Buffer)]);
 };
 
-export const generateSafeKeyPair = () => {
+export const generateSafeKeyPair = (): { privateKey: string, publicKey: string } => {
 
   const node = crypto.createECDH('secp256k1');
   node.generateKeys();
@@ -23,7 +23,7 @@ export const generateSafeKeyPair = () => {
   const publicKey = node.getPublicKey('hex', 'compressed');
   const privateKey = node.getPrivateKey().toString('hex');
 
-  if(privateKey.startsWith('0')){
+  if (privateKey.startsWith('0')) {
     return generateSafeKeyPair();
   }
 

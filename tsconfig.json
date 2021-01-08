@@ -3,7 +3,7 @@
         "experimentalDecorators": true,
         "rootDir": "./src",
         "module": "commonjs",
-        "target": "es2018",
+        "target": "es2020",
         "noImplicitAny": false,
         "sourceMap": true,
         "outDir": "./dist",
@@ -11,11 +11,10 @@
         "declaration": true,
         "skipLibCheck": true,
         "esModuleInterop": true,
-        "lib": ["es2018","esnext.asynciterable"]
+        "lib": ["es2020"]
     },
     "exclude": [
         "node_modules",
-        "dist",
-        "examples"
+        "dist"
     ]
 }
