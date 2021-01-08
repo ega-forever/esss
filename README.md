@@ -24,11 +24,15 @@ In ESSS scheme, each peer should have its own private and public keys. The workf
 
 ## Explanation
 
-During the split phase, algorithm generates random xCoef for each provided public key. The xCoef should belong to prime: ```xCoef <= prime```.
-Then the algorithm calculates the ```x``` coordinate: ```xCoef * publicKey[i]```, where ```publicKey[i]``` - is an i public key of provided public keys array
-M-of-n peers should sign the ```xCoef```: ```signature = xCoef * privateKey```
+During the split phase, algorithm generates a random xCoef for each provided public key. The xCoef should belong to prime: ```xCoef <= prime```.
+
+Then the algorithm calculates the ```x``` coordinate: ```xCoef * publicKey[i]```, where ```publicKey[i]``` - is an `i` public key of provided public keys array.
+
+M-of-n peers should sign the ```xCoef```: ```signature = xCoef * privateKey```.
+
 During the restoration phase, the algorithm calculates the initial ```x``` coordinate as: ```x = signature * G```.
-By knowing m-of-n shares, the algorithm restores initial secret through interpolation
+
+By knowing m-of-n shares, the algorithm restores initial secret through interpolation.
 
 The proof: ```xCoef * publicKey = xCoef * privateKey * G = signature * G```
 
