@@ -95,13 +95,42 @@ It's important since algorithm works with bigNumbers and this 0 can be wiped dur
 Return: `{ privateKey: string, publicKey: string }` - should return the keyPair.
 
 ## Example
-Please check out test files for example.
+
+```javascript
+import esss from 'esss'
+
+const keyPair1 = esss.utils.generateSafeKeyPair();
+const keyPair2 = esss.utils.generateSafeKeyPair();
+const keyPair3 = esss.utils.generateSafeKeyPair();
+
+const secret = '2e2ce090ee475752b19e79501897d3f3cb92d687f8c028df092a18e7838edac3';
+const m = 2;
+
+const [share1, share2, share3] = esss.split(secret, m, [keyPair1.publicKey, keyPair2.publicKey, keyPair3.publicKey]);
+
+const signature1 = esss.sign(share1[0], keyPair1.privateKey);
+const reply1: [string, string] = [signature1, share1[1]];
+
+const signature3 = esss.sign(share3[0], keyPair3.privateKey);
+const reply3: [string, string] = [signature3, share3[1]];
+
+const joined = esss.join([reply1, reply3]);
+
+console.log(`are equal: ${secret === joined}`); //are equal: true
+```
+
+
+Please check out test files for an advanced example.
 
 ## Running test
 
 ```bash
 $ npm run test
 ```
+
+# License
+
+[GNU GPLv3](LICENSE)
 
 # Copyright
 
